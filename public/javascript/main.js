@@ -1,6 +1,4 @@
-$("#chkInternetConnection").click( function() {
-    var id = parseInt($(this).val(), 10);
-    console.log(id);
+$("#chkInternetConnection").click(function() {
     if($(this).is(":checked")) {
         console.log('checkbox checked!');
     } else {

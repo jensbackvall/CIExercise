@@ -9,6 +9,5 @@ function add(){
 
 function remove(){
     var e = document.getElementById("txtChosenCellPhones");
-    var selected = e.options[e.selectedIndex];
-    document.getElementById("txtChosenCellPhones").remove(selected); 
+    document.getElementById("txtChosenCellPhones").remove(e.selectedIndex); 
 }   

@@ -10,7 +10,7 @@
             <label for="chkInternetConnection">Internet connection</label>
             <br>
             <label for="txtPhoneLines">Phone lines</label>
-            <input type="number" id="txtPhoneLines" value="0">
+            <input type="number" id="txtPhoneLines" value="0" min="0" max="8">
             <br>
             <label for="cmbCellPhones">Cell phones:</label>
             <br>
@@ -26,9 +26,9 @@
                         </select>
                     </td>
                     <td>
-                        <input type="button" value="&gt;">
+                        <input type="button" value="&gt;" onclick="add()">
                         <br>
-                        <input type="button" value="&lt;">
+                        <input type="button" value="&lt;" onclick="remove()">
                     </td>
                     <td>
                         <select id="txtChosenCellPhones" size="5" style="width: 150px">

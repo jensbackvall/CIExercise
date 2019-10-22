@@ -16,6 +16,7 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname+"/public/html/index.html")
 });
 
-// app.get('/', (req, res) => {
-
-// });
+app.post('/checkbox-value', (req, res) => {
+    const internetConnection = req.body.internetconnection;
+    console.log("Internet Connection has the value: ", internetConnection);
+});

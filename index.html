@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>KEANet</title>        
+    </head>
+    <body>
+        <h1>KEANet</h1>
+        <div>
+            <input type="checkbox" id="chkInternetConnection">
+            <label for="chkInternetConnection">Internet connection</label>
+            <br>
+            <label for="txtPhoneLines">Phone lines</label>
+            <input type="number" id="txtPhoneLines" value="0">
+            <br>
+            <label for="cmbCellPhones">Cell phones:</label>
+            <br>
+            <table>
+                <tr>
+                    <td>
+                        <select id="txtCellPhones" size="5">
+                            <option value="moto">Motorola G99</option>
+                            <option value="iphone">iPhone 99</option>
+                            <option value="samsung">Samsung Galaxy 99</option>
+                            <option value="sony">Sony Xperia 99</option>
+                            <option value="huawei">Huawei 99</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="button" value="&gt;">
+                        <br>
+                        <input type="button" value="&lt;">
+                    </td>
+                    <td>
+                        <select id="txtChosenCellPhones" size="5" style="width: 150px">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            Total price: 0 DKK
+            <br>
+            <input type="submit" value="Buy">
+        </div>
+    </body>
+</html>

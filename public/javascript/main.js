@@ -1,10 +1,14 @@
-$("#chkInternetConnection").click(function() {
-    if($(this).is(":checked")) {
-        console.log('checkbox checked!');
-    } else {
-        console.log('checkbox NOT checked!');
-    }
+$( document ).ready(function() {
+    $("#chkInternetConnection").click(function() {
+        if($(this).is(":checked")) {
+            console.log('checkbox checked!');
+        } else {
+            console.log('checkbox NOT checked!');
+        }
+    });
 });
+
+
 
 function add(){
     var e = document.getElementById("txtCellPhones");

@@ -33,4 +33,21 @@ function add(){
 function remove(){
     var e = document.getElementById("txtChosenCellPhones");
     document.getElementById("txtChosenCellPhones").remove(e.selectedIndex); 
-}   
+}
+
+$( document ).ready(function() {
+    //buy
+    $("#buyBtn").click(function() {
+        document.getElementById("buyPopup").style.display = "block";
+      });
+    //Close ALL popups 
+    $(".closePopup").click(function() {
+        document.getElementById("buyPopupNone").style.display = "none";
+        document.getElementById("buyPopup").style.display = "none";
+    });
+
+    $("#closePopupNone").click(function() {
+        document.getElementById("buyPopupNone").style.display = "none";
+        document.getElementById("buyPopup").style.display = "none";
+    });
+});

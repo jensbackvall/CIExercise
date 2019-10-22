@@ -3,7 +3,8 @@
     <head>
         <title>KEANet</title>
         <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="../javascript/main.js"></script>       
+        <script src="../javascript/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/main.css" />        
     </head>
     <body>
         <h1>KEANet</h1>
@@ -41,7 +42,21 @@
             <br>
             Total price: 0 DKK
             <br>
-            <input type="submit" value="Buy">
+            <input type="submit" value="Buy" id="buyBtn">
+        </div>
+        <div class="popup" id="buyPopup">
+            <a class="closePopup">&cross;</a>
+            <h1 class="popupHeadline">Buy products</h1>
+            <div>
+                <p class="popuptext">product 1 - 100 kr</p>
+                <p class="popuptext">product 2 - 100 kr</p>
+            </div>
+            <button type="button" class="btn" id="closePopupNone">Confirm</button>
+        </div>
+        <div class="popup" id="buyPopupNone">
+            <a class="closePopup">&cross;</a>
+            <h1 class="popupHeadline">You have not selected any products</h1>
+            <button type="button" class="btn" id="closePopupNone">Close</button>
         </div>
     </body>
 </html>

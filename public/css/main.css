@@ -1,0 +1,47 @@
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+
+  .popup{
+    display: none;
+    position: absolute;
+    max-width: 300px;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border: 3px solid #f1f1f1;
+    z-index: 10;
+  }
+
+  .closePopup{
+    right: 15px;
+    color: RED;
+    position: absolute;
+    font-size: 14pt;
+}
+
+.popupHeadline{
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.popuptext{
+    text-align: center;
+}
+
+a:hover{
+    cursor: pointer;
+}

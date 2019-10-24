@@ -9,11 +9,19 @@ class PurchaseClass {
 
     // Set the internetconnection to true or false. There can be only one. The price is 200
     setInternetConnection(yesNo) {
-        if (yesNo) {
+        console.log('yesno is: ' + String(yesNo))
+        if (yesNo === true) {
             this.totalPrice += 200;
+            console.log('You now have internet!' )
         } else {
+            console.log('You no longer have internet')
             this.totalPrice -= 200;
+            if(this.totalPrice < 0) {
+                throw "ABORT! THIS SHOULD NEVER HAPPEN"
+            }
         }
+        console.log('your bill is now: ' + String(this.totalPrice))
+
         this.internetConnection = yesNo;
         return this.totalPrice;
     }
@@ -41,8 +49,8 @@ class PurchaseClass {
     }
 
     addCellPhone(modelName) {
-        this.cellPhones.push(modelName)
-        price = 0
+        this.cellPhones.push(modelName);
+        let price = 0;
         switch(modelName) {
             case 'Motorola G99': price = 800;
                 break;
@@ -54,7 +62,7 @@ class PurchaseClass {
                 break;
             case 'Huawei 99': price = 900;
                 break;
-            default: this.cellPhones.pop()                   
+            default: this.cellPhones.pop();                   
         }
         return this.totalPrice += price        
     }
@@ -66,7 +74,7 @@ class PurchaseClass {
         }
         this.cellPhones.splice(index,-1)
 
-        price = 0
+        let price = 0
         switch(modelName) {
             case 'Motorola G99': price = 800;
                 break;
@@ -83,8 +91,8 @@ class PurchaseClass {
     }
 
     checkout() {
-        bill = 'Monthly bill \n'
-        monthSubTotal = 0
+        let bill = 'Monthly bill \n'
+        let monthSubTotal = 0
         if(this.internetConnection === true) {
             monthSubTotal += 200
             bill += '\n Internet connection: ' + + ',- Dkk'

@@ -7,6 +7,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 const purchase = require('./classes/purchase');
+const thisPurchase = new purchase(false, 0, [], 0);
 
 app.listen(3030,function(err){
 });
@@ -18,5 +19,6 @@ app.get('/', (req,res)=>{
 
 app.post('/checkbox-value', (req, res) => {
     const internetConnection = req.body.internetconnection;
+    thisPurchase.setInternetConnection(internetConnection)
     console.log("Internet Connection has the value: ", internetConnection);
 });

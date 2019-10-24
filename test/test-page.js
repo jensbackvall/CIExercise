@@ -20,16 +20,34 @@ describe('Test setting internet-connection', function() {
         assert.equal(thisPurchase.internetConnection, false);
     });
 
-    it('Test if the internetconnection changes to true', function() {
+    it('Internetconnection was false, change to true', function() {
         const thisPurchase = new PurchaseClass(false, 0, [], 0);
         thisPurchase.setInternetConnection(true);
         assert.equal(thisPurchase.internetConnection, true);
     });
 
-    it('Test if the internetconnection changes the total price to 200', function() {
+    it('Internetconnection set to true, add 200 total price, total price is 0', function() {
         const thisPurchase = new PurchaseClass(false, 0, [], 0);
         thisPurchase.setInternetConnection(true);
         assert.equal(thisPurchase.totalPrice, 200);
+    });
+
+    it('Internetconnection was true, changes to false', function() {
+        const thisPurchase = new PurchaseClass(true, 0, [], 0);
+        thisPurchase.setInternetConnection(false);
+        assert.equal(thisPurchase.internetConnection, false);
+    });
+
+    it('Internetconnection was true, set to false, subtract 200 to total price, total price is 200', function() {
+        const thisPurchase = new PurchaseClass(true, 0, [], 200);
+        thisPurchase.setInternetConnection(false);
+        assert.equal(thisPurchase.totalPrice, 0);
+    });
+
+    it('Internetconnection was true, set to false, do not subtract 200 to total price, total price is 0', function() {
+        const thisPurchase = new PurchaseClass(true, 0, [], 0);
+        thisPurchase.setInternetConnection(false);
+        assert.equal(thisPurchase.totalPrice, 0);
     });
 
 });

@@ -9,10 +9,11 @@ $( document ).ready(function() {
             console.log('checkbox NOT checked!');
             internetConnection = false;
         }
+            console.log(typeof(internetConnection))
         $.ajax({
             type: 'POST', 
             url: '/checkbox-value', 
-            data: { 'internetconnection': internetConnection }, 
+            data: { internetconnection: internetConnection }, 
             dataType: 'json',
             success: function (data) { 
                 $("#totalpricetext").text("Total price: "+data.totalprice+" DKK");

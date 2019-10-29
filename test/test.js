@@ -106,36 +106,35 @@ describe('Test adding and removing cellphone functions', function () {
     })
     it('Removing a Motorola G99 when array contains Motorola G99', function() {
         phoneModel = 'Motorola G99'
-        const thisPurchase = new PurchaseClass(false, 0, [], 0)
-        thisPurchase.addCellPhone(phoneModel)
-        assert.equal(thisPurchase.cellPhones[0], phoneModel)
-    })
-    it('Removing an iPhone 99 when array contains Motorola G99', function() {
-        phoneModel = 'iPhone 99'
-        const thisPurchase = new PurchaseClass(false, 0, [], 0)
-        thisPurchase.addCellPhone(phoneModel)
-        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+        const thisPurchase = new PurchaseClass(false, 0, [phoneModel], 0)
+        thisPurchase.removeCellPhone(phoneModel)
+        assert.deepEqual(thisPurchase.cellPhones, [])
     })
     it('Removing a Samsung Galaxy 99 when array contains Samsung Galaxy 99', function() {
         phoneModel = 'Samsung Galaxy 99'
-        const thisPurchase = new PurchaseClass(false, 0, [], 0)
-        thisPurchase.addCellPhone(phoneModel)
-        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+        const thisPurchase = new PurchaseClass(false, 0, [phoneModel], 0)
+        thisPurchase.removeCellPhone(phoneModel)
+        assert.deepEqual(thisPurchase.cellPhones, [])
     })
     it('Removing a Sony Xperia 99 when array contains Sony Xperia 99', function() {
         phoneModel = 'Sony Xperia 99'
-        const thisPurchase = new PurchaseClass(false, 0, [], 0)
-        thisPurchase.addCellPhone(phoneModel)
-        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+        const thisPurchase = new PurchaseClass(false, 0, [phoneModel], 0)
+        thisPurchase.removeCellPhone(phoneModel)
+        assert.deepEqual(thisPurchase.cellPhones, [])
     })
     it('Removing a Huawei 99 when array contains Huawei 99', function() {
         phoneModel = 'Huawei 99'
-        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        const thisPurchase = new PurchaseClass(false, 0, [phoneModel], 0)
         thisPurchase.addCellPhone(phoneModel)
-        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+        assert.deepEqual(thisPurchase.cellPhones, [])
     })
-
-    it('Adding an unknown phone when array is empty', function() {
+    it('Do not remove an iPhone 99 when array only contains Motorola G99', function() {
+        phoneModel = 'iPhone 99'
+        const thisPurchase = new PurchaseClass(false, 0, ['Motorola G99'], 0)
+        thisPurchase.removeCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], 'Motorola G99')
+    })
+    it('Do not add an unknown phone when array is empty', function() {
         phoneModel = 'iPhone 99999'
         const thisPurchase = new PurchaseClass(false, 0, [], 0)
         thisPurchase.addCellPhone(phoneModel)
@@ -172,5 +171,34 @@ describe('Testing the checkout function', function() {
     it('Check if string contains \'Internet connection\'', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 0)
         assert.equal(thisPurchase.checkout().includes('Internet connection'), true)
+    });
+    it('Check if string contains \'Phone line(s)\'', function() {
+        const thisPurchase = new PurchaseClass(true, 1, [], 0)
+        assert.equal(thisPurchase.checkout().includes('Phone line(s)'), true)
+    });
+    it('Check if string contains  \'Motorola G99\'', function() {
+        const phoneArr = ['Motorola G99']
+        const thisPurchase = new PurchaseClass(true, 0, phoneArr, 0)
+        assert.equal(thisPurchase.checkout().includes('Motorola G99'), true)
+    });
+    it('Check if string contains  \'iPhone 99\'', function() {
+        const phoneArr = ['iPhone 99']
+        const thisPurchase = new PurchaseClass(true, 0, phoneArr, 0)
+        assert.equal(thisPurchase.checkout().includes('iPhone 99'), true)
+    });
+    it('Check if string contains  \'Samsung Galaxy 99\'', function() {
+        const phoneArr = ['Samsung Galaxy 99']
+        const thisPurchase = new PurchaseClass(true, 0, phoneArr, 0)
+        assert.equal(thisPurchase.checkout().includes('Samsung Galaxy 99'), true)
+    });
+    it('Check if string contains  \'Sony Xperia 99\'', function() {
+        const phoneArr = ['Sony Xperia 99']
+        const thisPurchase = new PurchaseClass(true, 0, phoneArr, 0)
+        assert.equal(thisPurchase.checkout().includes('Sony Xperia 99'), true)
+    });
+    it('Check if string contains  \'Huawei 99\'', function() {
+        const phoneArr = ['Huawei 99']
+        const thisPurchase = new PurchaseClass(true, 0, phoneArr, 0)
+        assert.equal(thisPurchase.checkout().includes('Huawei 99'), true)
     });
 });

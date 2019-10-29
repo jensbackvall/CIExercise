@@ -71,8 +71,8 @@ class PurchaseClass {
         if(index === -1) {
             return this.totalPrice
         }
-        this.cellPhones.splice(index,-1)
 
+        this.cellPhones.splice(index,1)
         let price = 0
         switch(modelName) {
             case 'Motorola G99': price = 800;
@@ -103,7 +103,7 @@ class PurchaseClass {
         }
         bill += '\n Monthly Total: ' + String(monthSubTotal) + ',- Dkk'
 
-        for (let i = 0; i < this.cellPhones; i++){
+        for (let i = 0; i < this.cellPhones.length; i++){
             switch(this.cellPhones[i]) {
                 case 'Motorola G99': 
                     bill += '\n Motorola G99: 800,- Dkk';

@@ -8,10 +8,11 @@ $( document ).ready(function() {
             console.log('checkbox NOT checked!');
             internetConnection = false;
         }
+            console.log(typeof(internetConnection))
         $.ajax({
             type: 'POST', 
             url: '/checkbox-value', 
-            data: { 'internetconnection': internetConnection }, 
+            data: { internetconnection: internetConnection }, 
             dataType: 'json',
             success: function (data) { 
                 console.log("This internet connection value has been sent to backend: ", data);

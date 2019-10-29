@@ -38,3 +38,5 @@ app.post('/subtractphoneline', (req, res) => {
     console.log("Subtracted a phone line");
     res.send({ "status": 200, "totalprice": thisPurchase.totalPrice });
 });
+
+console.log("Logging for change :-)");

@@ -15,39 +15,33 @@ describe('Page status test', function() {
 });
 */
 describe('Test setting internet-connection', function() {
-    it('Test if the internetconnection boolean is false', function() {
-        const thisPurchase = new PurchaseClass(false, 0, [], 0);
+    it('Internetconnection was true change to false', function() {
+        const thisPurchase = new PurchaseClass(true, 0, [], 400);
+        thisPurchase.setInternetConnection('false')
         assert.equal(thisPurchase.internetConnection, false);
     });
 
     it('Internetconnection was false, change to true', function() {
         const thisPurchase = new PurchaseClass(false, 0, [], 0);
-        thisPurchase.setInternetConnection(true);
+        thisPurchase.setInternetConnection('true');
         assert.equal(thisPurchase.internetConnection, true);
     });
 
-    it('Internetconnection set to true, add 200 total price, total price is 0', function() {
+    it('Internetconnection set to true, add 200 total price when total price is 0', function() {
         const thisPurchase = new PurchaseClass(false, 0, [], 0);
-        thisPurchase.setInternetConnection(true);
+        thisPurchase.setInternetConnection('true');
         assert.equal(thisPurchase.totalPrice, 200);
     });
 
-    it('Internetconnection was true, changes to false', function() {
-        const thisPurchase = new PurchaseClass(true, 0, [], 0);
-        thisPurchase.setInternetConnection(false);
-        assert.equal(thisPurchase.internetConnection, false);
-    });
-
-    it('Internetconnection was true, set to false, subtract 200 to total price, total price is 200', function() {
+    it('Internetconnection was true, set to false, subtract 200 to total price when total price is 200', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 200);
-        thisPurchase.setInternetConnection(false);
+        thisPurchase.setInternetConnection('false');
         assert.equal(thisPurchase.totalPrice, 0);
     });
 
-    it('Internetconnection was true, set to false, do not subtract 200 to total price, total price is 0', function() {
+    it('Internetconnection was true, set to false, do not subtract 200 to total price when total price is 0', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 0);
-        thisPurchase.setInternetConnection(false);
-        assert.equal(thisPurchase.totalPrice, 0);
+        expect(thisPurchase.setInternetConnection.bind(thisPurchase,'false')).to.throw("ABORT! THIS SHOULD NEVER HAPPEN")
     });
 
 });

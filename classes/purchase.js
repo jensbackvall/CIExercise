@@ -9,10 +9,8 @@ class PurchaseClass {
 
     // Set the internetconnection to true or false. There can be only one. The price is 200
     setInternetConnection(yesNo) {
-        //console.log('yesno is: ' + String(yesNo))
-        console.log('yesno is: ' + yesNo)
-        console.log(typeof(yesNo))
-        if (yesNo === 'true') {
+        yesNo = (yesNo ==='true')
+        if (yesNo) {
             this.totalPrice += 200;
             console.log('You now have internet!' )
         } else {
@@ -22,8 +20,7 @@ class PurchaseClass {
                 throw "ABORT! THIS SHOULD NEVER HAPPEN"
             }
         }
-        console.log('your bill is now: ' + String(this.totalPrice))
-
+        //console.log('your bill is now: ' + String(this.totalPrice))
         this.internetConnection = yesNo;
         return this.totalPrice;
     }

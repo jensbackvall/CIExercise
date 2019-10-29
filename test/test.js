@@ -4,16 +4,6 @@ const assert = require('assert');
 
 const PurchaseClass = require('../classes/purchase');
 
-/*
-describe('Page status test', function() {
-    it('Main page status', function(done) {
-        request('http://localhost:3030' , function(error, response, body) {
-            expect(response.statusCode).to.equal(200);
-            done();
-        });
-    });
-});
-*/
 describe('Test setting internet-connection', function() {
     it('Internetconnection was true change to false', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 400);

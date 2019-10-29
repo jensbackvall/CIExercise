@@ -141,7 +141,7 @@ $( document ).ready(function() {
                     }
                     var node = document.createElement("p");
                             node.classList.add("popuptext");
-                            var textnode = document.createTextNode("Total price of "+data.thisPurchase.totalPrice); 
+                            var textnode = document.createTextNode("Total price of "+data.thisPurchase.totalPrice+" Dkk"); 
                             node.appendChild(textnode);
                             document.getElementById("popupAppend").appendChild(node);
                 }

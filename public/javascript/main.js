@@ -1,3 +1,4 @@
+var phonelines = 0;
 $( document ).ready(function() {
     $("#chkInternetConnection").click(function() {
         var internetConnection = '';
@@ -14,10 +15,37 @@ $( document ).ready(function() {
             data: { 'internetconnection': internetConnection }, 
             dataType: 'json',
             success: function (data) { 
-                console.log("This internet connection value has been sent to backend: ", data);
+                console.log("This internet connection value has been sent to backend: ", data.totalprice);
             }
         });
     });
+
+    $("#txtPhoneLines").on('change',(function() {
+        console.log($("#txtPhoneLines").val())
+        if (phonelines+1==$("#txtPhoneLines").val()){
+            phonelines++;
+            $.ajax({
+                type: 'POST', 
+                url: '/addphoneline', 
+                data: { }, 
+                dataType: 'json',
+                success: function (data) { 
+                    console.log("This internet connection value has been sent to backend: ", data.totalprice);
+                }
+            });
+        }else if (phonelines-1==$("#txtPhoneLines").val()){
+            phonelines--;
+            $.ajax({
+                type: 'POST', 
+                url: '/subtractphoneline', 
+                data: { }, 
+                dataType: 'json',
+                success: function (data) { 
+                    console.log("This internet connection value has been sent to backend: ", data.totalprice);
+                }
+            });
+        }
+    }));
 });
 
 

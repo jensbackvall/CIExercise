@@ -8,5 +8,7 @@ Testing with: Mocha/Chai
 
 CI with: Travis CI
 
+<b>See the Log file from Travis folder for an html showing the logs from a build</b>
+
 Written by: Jens Bäckvall, Po Kiu Lai, Steen Petersen
 

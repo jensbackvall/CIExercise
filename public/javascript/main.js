@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     $("#chkInternetConnection").click(function() {
-        var internetConnection = false;
+        var internetConnection = '';
         if($(this).is(":checked")) {
             console.log('checkbox checked!');
             internetConnection = true;
@@ -11,7 +11,7 @@ $( document ).ready(function() {
         $.ajax({
             type: 'POST', 
             url: '/checkbox-value', 
-            data: { internetconnection: internetConnection }, 
+            data: { 'internetconnection': internetConnection }, 
             dataType: 'json',
             success: function (data) { 
                 console.log("This internet connection value has been sent to backend: ", data);

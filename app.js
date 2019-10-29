@@ -18,7 +18,7 @@ app.get('/', (req,res)=>{
 });
 
 app.post('/checkbox-value', (req, res) => {
-    const internetConnection = req.body.internetconnection;
-    thisPurchase.setInternetConnection(internetConnection)
-    console.log("Internet Connection has the value: ", internetConnection);
+    const itc = req.body.internetconnection;
+    thisPurchase.setInternetConnection(itc)
+    console.log("Internet Connection has the value: ", itc);
 });

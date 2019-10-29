@@ -17,7 +17,7 @@ describe('Page status test', function() {
 describe('Test setting internet-connection', function() {
     it('Internetconnection was true change to false', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 400);
-        thisPurchase.setInternetConnection('false')
+        thisPurchase.setInternetConnection('true')
         assert.equal(thisPurchase.internetConnection, false);
     });
 

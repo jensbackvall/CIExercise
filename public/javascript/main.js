@@ -16,7 +16,7 @@ $( document ).ready(function() {
             data: { internetconnection: internetConnection }, 
             dataType: 'json',
             success: function (data) { 
-                console.log("This internet connection value has been sent to backend: ", data.totalprice);
+                $("#totalpricetext").text("Total price: "+data.totalprice+" DKK");
             }
         });
     });
@@ -31,7 +31,7 @@ $( document ).ready(function() {
                 data: { }, 
                 dataType: 'json',
                 success: function (data) { 
-                    console.log("This internet connection value has been sent to backend: ", data.totalprice);
+                    $("#totalpricetext").text("Total price: "+data.totalprice+" DKK");
                 }
             });
         }else if (phonelines-1==$("#txtPhoneLines").val()){
@@ -42,7 +42,7 @@ $( document ).ready(function() {
                 data: { }, 
                 dataType: 'json',
                 success: function (data) { 
-                    console.log("This internet connection value has been sent to backend: ", data.totalprice);
+                    $("#totalpricetext").text("Total price: "+data.totalprice+" DKK");
                 }
             });
         }
@@ -56,18 +56,54 @@ function add(){
     var node = document.createElement("option");
     node.value = selected.value;
     node.text = selected.text;
-    document.getElementById("txtChosenCellPhones").appendChild(node); 
+    document.getElementById("txtChosenCellPhones").appendChild(node);
+    $.ajax({
+        type: 'POST', 
+        url: '/addcellphone', 
+        data: { 'cellphone': node.text }, 
+        dataType: 'json',
+        success: function (data) { 
+            $("#totalpricetext").text("Total price: "+data.totalprice+" DKK");
+        }
+    });
 }
 
 function remove(){
     var e = document.getElementById("txtChosenCellPhones");
-    document.getElementById("txtChosenCellPhones").remove(e.selectedIndex); 
+    var selected = e.options[e.selectedIndex];
+    $.ajax({
+        type: 'POST', 
+        url: '/removecellphone', 
+        data: { 'cellphone': selected.text }, 
+        dataType: 'json',
+        success: function (data) { 
+            $("#totalpricetext").text("Total price: "+data.totalprice+" DKK");
+        }
+    });
+    document.getElementById("txtChosenCellPhones").remove(e.selectedIndex);
 }
 
 $( document ).ready(function() {
     //buy
     $("#buyBtn").click(function() {
-        document.getElementById("buyPopup").style.display = "block";
+        if ("Total price: 0 DKK"==$("#totalpricetext").text()){
+            document.getElementById("buyPopupNone").style.display = "block";
+        }else{
+            document.getElementById("buyPopup").style.display = "block";
+            $.ajax({
+                type: 'POST', 
+                url: '/buy', 
+                data: { }, 
+                dataType: 'json',
+                success: function (data) {
+                    var node = document.createElement("p");
+                    node.classList.add("popuptext");
+                    node.value = "internet";
+                    document.getElementById("popupAppend").appendChild(node);
+                    console.log(data.thisPurchase);
+                }
+            });
+        }
       });
     //Close ALL popups 
     $(".closePopup").click(function() {
@@ -75,7 +111,7 @@ $( document ).ready(function() {
         document.getElementById("buyPopup").style.display = "none";
     });
 
-    $("#closePopupNone").click(function() {
+    $(".closePopupNone").click(function() {
         document.getElementById("buyPopupNone").style.display = "none";
         document.getElementById("buyPopup").style.display = "none";
     });

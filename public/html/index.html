@@ -40,23 +40,23 @@
                 </tr>
             </table>
             <br>
-            Total price: 0 DKK
+            <div id="totalpricetext">Total price: 0 DKK</div>
             <br>
             <input type="submit" value="Buy" id="buyBtn">
         </div>
         <div class="popup" id="buyPopup">
             <a class="closePopup">&cross;</a>
             <h1 class="popupHeadline">Buy products</h1>
-            <div>
+            <div id="popupAppend">
                 <p class="popuptext">product 1 - 100 kr</p>
                 <p class="popuptext">product 2 - 100 kr</p>
             </div>
-            <button type="button" class="btn" id="closePopupNone">Confirm</button>
+            <button type="button" class="btn closePopupNone">Confirm</button>
         </div>
         <div class="popup" id="buyPopupNone">
             <a class="closePopup">&cross;</a>
             <h1 class="popupHeadline">You have not selected any products</h1>
-            <button type="button" class="btn" id="closePopupNone">Close</button>
+            <button type="button" class="btn closePopupNone">Close</button>
         </div>
     </body>
 </html>

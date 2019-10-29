@@ -33,13 +33,13 @@ describe('Test setting internet-connection', function() {
         assert.equal(thisPurchase.totalPrice, 200);
     });
 
-    it('Internetconnection was true, set to false, subtract 200 to total price when total price is 200', function() {
+    it('Internetconnection was true, set to false, subtract 200 from total price when total price is 200', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 200);
         thisPurchase.setInternetConnection('false');
         assert.equal(thisPurchase.totalPrice, 0);
     });
 
-    it('Internetconnection was true, set to false, do not subtract 200 to total price when total price is 0', function() {
+    it('Internetconnection was true, set to false, do not subtract 200 from total price when total price is 0', function() {
         const thisPurchase = new PurchaseClass(true, 0, [], 0);
         expect(thisPurchase.setInternetConnection.bind(thisPurchase,'false')).to.throw("ABORT! THIS SHOULD NEVER HAPPEN")
     });

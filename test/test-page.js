@@ -74,12 +74,67 @@ describe('Test setting phone lines', function() {
 
 describe('Test adding and removing cellphone functions', function () {
     // Lower boundary tests?
+    it('Adding a Motorola G99 when array is empty', function() {
+        phoneModel = 'Motorola G99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
     it('Adding an iPhone 99 when array is empty', function() {
         phoneModel = 'iPhone 99'
         const thisPurchase = new PurchaseClass(false, 0, [], 0)
         thisPurchase.addCellPhone(phoneModel)
         assert.equal(thisPurchase.cellPhones[0], phoneModel)
     })
+    it('Adding a Samsung Galaxy 99 when array is empty', function() {
+        phoneModel = 'Samsung Galaxy 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Adding a Sony Xperia 99 when array is empty', function() {
+        phoneModel = 'Sony Xperia 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Adding a Huawei 99 when array is empty', function() {
+        phoneModel = 'Huawei 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Removing a Motorola G99 when array contains Motorola G99', function() {
+        phoneModel = 'Motorola G99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Removing an iPhone 99 when array contains Motorola G99', function() {
+        phoneModel = 'iPhone 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Removing a Samsung Galaxy 99 when array contains Samsung Galaxy 99', function() {
+        phoneModel = 'Samsung Galaxy 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Removing a Sony Xperia 99 when array contains Sony Xperia 99', function() {
+        phoneModel = 'Sony Xperia 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+    it('Removing a Huawei 99 when array contains Huawei 99', function() {
+        phoneModel = 'Huawei 99'
+        const thisPurchase = new PurchaseClass(false, 0, [], 0)
+        thisPurchase.addCellPhone(phoneModel)
+        assert.equal(thisPurchase.cellPhones[0], phoneModel)
+    })
+
     it('Adding an unknown phone when array is empty', function() {
         phoneModel = 'iPhone 99999'
         const thisPurchase = new PurchaseClass(false, 0, [], 0)
@@ -101,16 +156,7 @@ describe('Test adding and removing cellphone functions', function () {
         assert.equal(thisPurchase.cellPhones[0], phoneModelAdded)
     })
 
-    it('Adding all known phone models', function() {
-        phoneModelToAdd = ['Motorola G99', 'iPhone 99', 'Samsung Galaxy 99', 'Sony Xperia 99', 'Huawei 99']
-        const thisPurchase = new PurchaseClass(false, 0, [], 0)
-        for(let i = 0; i < phoneModelToAdd.length; i++){
-            thisPurchase.addCellPhone(phoneModelToAdd[i])
-        }
-        assert.deepEqual(thisPurchase.cellPhones, phoneModelToAdd)     
-    })
-
-    it('Adding multiple copies of same phone models', function() {
+    it('Adding multiple copies of multiple phone models', function() {
         phoneModelToAdd = ['Motorola G99', 'iPhone 99', 'Samsung Galaxy 99', 'Sony Xperia 99', 'Huawei 99']
         const thisPurchase = new PurchaseClass(false, 0, [], 0)
         for(let j = 0; j < 2; j++){

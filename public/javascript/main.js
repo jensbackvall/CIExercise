@@ -90,17 +90,60 @@ $( document ).ready(function() {
             document.getElementById("buyPopupNone").style.display = "block";
         }else{
             document.getElementById("buyPopup").style.display = "block";
+            $("#popupAppend").html('');
             $.ajax({
                 type: 'POST', 
                 url: '/buy', 
                 data: { }, 
                 dataType: 'json',
                 success: function (data) {
-                    var node = document.createElement("p");
-                    node.classList.add("popuptext");
-                    node.value = "internet";
-                    document.getElementById("popupAppend").appendChild(node);
                     console.log(data.thisPurchase);
+                    if (data.thisPurchase.internetConnection){
+                        var node = document.createElement("p");
+                        node.classList.add("popuptext");
+                        var textnode = document.createTextNode("Internet - 200 Dkk"); 
+                        node.appendChild(textnode);
+                        document.getElementById("popupAppend").appendChild(node);
+                    }
+                    if (data.thisPurchase.phoneLines != 0){
+                        var node = document.createElement("p");
+                        node.classList.add("popuptext");
+                        var textnode = document.createTextNode(data.thisPurchase.phoneLines+" phonelines - "+(data.thisPurchase.phoneLines*150)+" Dkk"); 
+                        node.appendChild(textnode);
+                        document.getElementById("popupAppend").appendChild(node);
+                    }
+                    if (data.thisPurchase.cellPhones.length != 0){
+                        data.thisPurchase.cellPhones.forEach(element => {
+                            var bill = "";
+                            switch(element) {
+                                case 'Motorola G99': 
+                                    bill = 'Motorola G99 - 800 Dkk';
+                                    break;
+                                case 'iPhone 99':
+                                    bill = 'iPhone - 6000 Dkk';
+                                    break;
+                                case 'Samsung Galaxy 99':
+                                    bill = 'Samsung Galaxy 99 - 1000 Dkk';
+                                    break;
+                                case 'Sony Xperia 99':
+                                    bill += 'Sony Xperia 99 - 900 Dkk';
+                                    break;
+                                case 'Huawei 99':
+                                    bill += 'Huawei 99 - 900 Dkk';
+                                    break;
+                            }
+                            var node = document.createElement("p");
+                            node.classList.add("popuptext");
+                            var textnode = document.createTextNode(bill); 
+                            node.appendChild(textnode);
+                            document.getElementById("popupAppend").appendChild(node);
+                        });
+                    }
+                    var node = document.createElement("p");
+                            node.classList.add("popuptext");
+                            var textnode = document.createTextNode("Total price of "+data.thisPurchase.totalPrice); 
+                            node.appendChild(textnode);
+                            document.getElementById("popupAppend").appendChild(node);
                 }
             });
         }

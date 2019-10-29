@@ -125,7 +125,7 @@ describe('Test adding and removing cellphone functions', function () {
     it('Removing a Huawei 99 when array contains Huawei 99', function() {
         phoneModel = 'Huawei 99'
         const thisPurchase = new PurchaseClass(false, 0, [phoneModel], 0)
-        thisPurchase.addCellPhone(phoneModel)
+        thisPurchase.removeCellPhone(phoneModel)
         assert.deepEqual(thisPurchase.cellPhones, [])
     })
     it('Do not remove an iPhone 99 when array only contains Motorola G99', function() {

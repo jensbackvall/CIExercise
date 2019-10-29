@@ -109,7 +109,7 @@ class PurchaseClass {
                     bill += '\n Motorola G99: 800,- Dkk';
                     break;
                 case 'iPhone 99':
-                    bill += '\n iPhone: 6000,- Dkk';
+                    bill += '\n iPhone 99: 6000,- Dkk';
                     break;
                 case 'Samsung Galaxy 99':
                     bill += '\n Samsung Galaxy 99: 1000,- Dkk';
